@@ -19,10 +19,10 @@ public class MinhaThread implements Runnable {
             Main.count++;
             Main.mutex.release();
 
+            System.out.println("Thread " + id + " terminou de executar");
             if (Main.count == Main.num) {
                 Main.catr.release();
             }
-            System.out.println("Thread " + id + " terminou de executar");
         } catch (InterruptedException ie) {
             ie.printStackTrace();
         }
