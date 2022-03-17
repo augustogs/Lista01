@@ -40,7 +40,6 @@ public class MinhaThread implements Runnable {
 
             Thread.sleep(tempo2 * 1000);
 
-            //Identifica que todas as threads já terminaram a execução.
             System.out.println("Thread " + id + " terminou de executar");
             Main.mutex.acquire();
             Main.count2--;
