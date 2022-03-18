@@ -16,19 +16,19 @@ public class MinhaThread implements Runnable {
             Thread.sleep(tempo * 1000);
             System.out.println("Primeira fase: Thread " + id + " dormiu por " + tempo + " segundos");
 
-            int numSorteado = (int) (Math.random() * 10);
-            Main.sorteados[id] = (numSorteado);
-            System.out.println("Primeira fase: Thread " + id + " sorteou " + numSorteado);
+            int sNum = (int) (Math.random() * 10);
+            Main.sorteados[id] = (sNum);
+            System.out.println("Primeira fase: Thread " + id + " sorteou " + sNum);
 
             Main.mutex.acquire();
             Main.count++;
             if (Main.count == Main.num) {
-                Main.catr1.release();
+                Main.catr2.release();
             }
             Main.mutex.release();
 
-            Main.catr1.acquire();
-            Main.catr1.release();
+            Main.catr2.acquire();
+            Main.catr2.release();
 
             int tempo2;
             if (id == 0) {
@@ -36,7 +36,6 @@ public class MinhaThread implements Runnable {
             } else {
                 tempo2 = Main.sorteados[id-1];
             }
-
             Thread.sleep(tempo2 * 1000);
             System.out.println("Segunda fase: Thread " + id + " dormiu por " + tempo2 + " segundos");
 
