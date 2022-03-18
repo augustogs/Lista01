@@ -35,7 +35,6 @@ public class Main {
             threads.start();
         }
         catr.acquire();
-
         System.out.println("Thread principal terminou de executar. " + num);
     }
 
